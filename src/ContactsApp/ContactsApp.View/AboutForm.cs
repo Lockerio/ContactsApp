@@ -16,5 +16,41 @@ namespace ContactsApp.View
         {
             InitializeComponent();
         }
+
+
+        // Links
+        private void GithubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {           
+            try
+            {
+                System.Diagnostics.Process.Start("https://github.com/Lockerio");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+        private void IconsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://icons8.ru");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+
+        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
