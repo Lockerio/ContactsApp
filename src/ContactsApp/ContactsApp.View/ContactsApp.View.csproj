@@ -86,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +103,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ContactsApp_96x96.ico" />
+    <None Include="Resources\remove_contact_32x32_gray.png" />
+    <None Include="Resources\remove_contact_32x32.png" />
+    <None Include="Resources\photo_placeholder_100x100.png" />
+    <None Include="Resources\info_48x48.png" />
+    <None Include="Resources\edit_contact_32x32_gray.png" />
+    <None Include="Resources\edit_contact_32x32.png" />
+    <None Include="Resources\collapse_32x32.png" />
+    <None Include="Resources\close_32x32.png" />
+    <None Include="Resources\add_photo_32x32_gray.png" />
+    <None Include="Resources\add_photo_32x32.png" />
+    <None Include="Resources\add_contact_32x32_gray.png" />
+    <None Include="Resources\add_contact_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
