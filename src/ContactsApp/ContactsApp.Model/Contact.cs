@@ -9,6 +9,7 @@ namespace ContactsApp.Model
 {
     public class Contact
     {
+        // Arguments
         /// <summary>
         /// Полное имя
         /// </summary>
@@ -34,7 +35,7 @@ namespace ContactsApp.Model
         /// </summary>
         private string _vkId;
 
-
+        // Methods
         /// <summary>
         /// Конструктор класса Contact, создает экземпляр этого класса
         /// </summary>
