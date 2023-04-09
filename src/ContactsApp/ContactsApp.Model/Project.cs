@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает проект
+    /// </summary>
     internal class Project
     {
         /// <summary>
@@ -30,13 +33,14 @@ namespace ContactsApp.Model
         }
 
         /// <summary>
-        /// Находит иименинников в списке
+        /// Находит именинников в списке
         /// </summary>
         /// <param name="date">Введеннай дата</param>
         /// <returns>Контакты, у которых день рождения совпадает с введенной датой</returns>
         public List<Contact> FindBirthdayContacts(DateTime date)
         {
-            return contacts.Where(contact => contact.DateOfBirth.Month == date.Month && contact.DateOfBirth.Day == date.Day).ToList();
+            return contacts.Where(contact => contact.DateOfBirth.Month == date.Month
+            && contact.DateOfBirth.Day == date.Day).ToList();
         }
 
         /// <summary>

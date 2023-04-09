@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает контакт
+    /// </summary>
     public class Contact
     {
-        // Arguments
         /// <summary>
         /// Полное имя
         /// </summary>
@@ -35,7 +37,6 @@ namespace ContactsApp.Model
         /// </summary>
         private string _vkId;
 
-        // Methods
         /// <summary>
         /// Конструктор класса Contact, создает экземпляр этого класса
         /// </summary>
@@ -44,7 +45,12 @@ namespace ContactsApp.Model
         /// <param name="phoneNumber">Телефонный номер</param>
         /// <param name="dateOfBirth">Дата рождения</param>
         /// <param name="vkId">id ВКонтакте</param>
-        public Contact(string fullName, string email, string phoneNumber, DateTime dateOfBirth, string vkId)
+        public Contact(
+            string fullName, 
+            string email, 
+            string phoneNumber, 
+            DateTime dateOfBirth, 
+            string vkId)
         {
             FullName = fullName;
             Email = email;
@@ -59,7 +65,12 @@ namespace ContactsApp.Model
         public string FullName
         {
             get { return _fullName; }
-            set { _fullName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TruncateString(value, 100).ToLower()); }
+            set 
+            {
+                var truncated = TruncateString(value, 100);
+                var textInfo = CultureInfo.CurrentCulture.TextInfo;
+                _fullName = textInfo.ToTitleCase(truncated.ToLower());
+            }
         }
 
         /// <summary>
@@ -148,7 +159,8 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="value">Введенная дата</param>
         /// <returns>Проверенная дата</returns>
-        /// <exception cref="ArgumentException">Дата должна быть поздее, чем 1900 год, и не должна быть в будущем</exception>
+        /// <exception cref="ArgumentException">Дата должна быть поздее, чем 1900 год,
+        /// и не должна быть в будущем</exception>
         private DateTime ValidateDateOfBirth(DateTime value)
         {
             if (value < new DateTime(1900, 1, 1))
