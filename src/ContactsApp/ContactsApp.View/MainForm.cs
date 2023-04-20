@@ -7,11 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
     public partial class MainForm : Form
     {
+        private Project _project = new Project();
+
+
+        private void UpdateListBox()
+        {
+            ContactsListBox.Items.Clear();
+
+            var contacts = _project.Contacts;
+            foreach (var contact in contacts)
+            {
+                ContactsListBox.Items.Add(contact.FullName);
+            }
+        }
+
+
+
+
+
         public MainForm()
         {
             InitializeComponent();
