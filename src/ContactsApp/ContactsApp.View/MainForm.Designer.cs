@@ -76,7 +76,7 @@
             this.MainTableLayoutPanel.Controls.Add(this.ContactsListPanel, 0, 0);
             this.MainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainTableLayoutPanel.Name = "MainTableLayoutPanel";
             this.MainTableLayoutPanel.RowCount = 1;
             this.MainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -99,7 +99,7 @@
             this.ContactReadPanel.Controls.Add(this.PhotoPictureBox);
             this.ContactReadPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContactReadPanel.Location = new System.Drawing.Point(337, 4);
-            this.ContactReadPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContactReadPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ContactReadPanel.Name = "ContactReadPanel";
             this.ContactReadPanel.Size = new System.Drawing.Size(726, 546);
             this.ContactReadPanel.TabIndex = 0;
@@ -114,7 +114,7 @@
             this.BirthdayPanel.Controls.Add(this.BithdayLabel);
             this.BirthdayPanel.Controls.Add(this.InfoPictureBox);
             this.BirthdayPanel.Location = new System.Drawing.Point(4, 450);
-            this.BirthdayPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BirthdayPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BirthdayPanel.Name = "BirthdayPanel";
             this.BirthdayPanel.Size = new System.Drawing.Size(718, 92);
             this.BirthdayPanel.TabIndex = 11;
@@ -126,7 +126,7 @@
             this.BirthdayPanelCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BirthdayPanelCloseButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32;
             this.BirthdayPanelCloseButton.Location = new System.Drawing.Point(672, 4);
-            this.BirthdayPanelCloseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BirthdayPanelCloseButton.Margin = new System.Windows.Forms.Padding(4);
             this.BirthdayPanelCloseButton.Name = "BirthdayPanelCloseButton";
             this.BirthdayPanelCloseButton.Size = new System.Drawing.Size(43, 39);
             this.BirthdayPanelCloseButton.TabIndex = 12;
@@ -141,7 +141,7 @@
             this.BirtdaySurnamesLabel.Location = new System.Drawing.Point(104, 53);
             this.BirtdaySurnamesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BirtdaySurnamesLabel.Name = "BirtdaySurnamesLabel";
-            this.BirtdaySurnamesLabel.Size = new System.Drawing.Size(208, 13);
+            this.BirtdaySurnamesLabel.Size = new System.Drawing.Size(260, 17);
             this.BirtdaySurnamesLabel.TabIndex = 14;
             this.BirtdaySurnamesLabel.Text = "Улитка из бара, Линдеманн и др.";
             // 
@@ -153,7 +153,7 @@
             this.BithdayLabel.Location = new System.Drawing.Point(104, 26);
             this.BithdayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BithdayLabel.Name = "BithdayLabel";
-            this.BithdayLabel.Size = new System.Drawing.Size(124, 13);
+            this.BithdayLabel.Size = new System.Drawing.Size(159, 17);
             this.BithdayLabel.TabIndex = 13;
             this.BithdayLabel.Text = "Today is Birthday of:";
             // 
@@ -161,7 +161,7 @@
             // 
             this.InfoPictureBox.Image = global::ContactsApp.View.Properties.Resources.info_48x48;
             this.InfoPictureBox.Location = new System.Drawing.Point(4, 4);
-            this.InfoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.InfoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.InfoPictureBox.Name = "InfoPictureBox";
             this.InfoPictureBox.Size = new System.Drawing.Size(92, 85);
             this.InfoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -171,7 +171,7 @@
             // VKTextBox
             // 
             this.VKTextBox.Location = new System.Drawing.Point(145, 268);
-            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(232, 22);
             this.VKTextBox.TabIndex = 10;
@@ -190,7 +190,7 @@
             // DateOfBirthTextBox
             // 
             this.DateOfBirthTextBox.Location = new System.Drawing.Point(145, 208);
-            this.DateOfBirthTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateOfBirthTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.DateOfBirthTextBox.Name = "DateOfBirthTextBox";
             this.DateOfBirthTextBox.Size = new System.Drawing.Size(232, 22);
             this.DateOfBirthTextBox.TabIndex = 8;
@@ -209,7 +209,7 @@
             // PhoneNumberTextBox
             // 
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(145, 148);
-            this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(232, 22);
             this.PhoneNumberTextBox.TabIndex = 6;
@@ -231,7 +231,7 @@
             this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.Location = new System.Drawing.Point(145, 87);
-            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(576, 22);
             this.EmailTextBox.TabIndex = 4;
@@ -253,7 +253,7 @@
             this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.Location = new System.Drawing.Point(145, 27);
-            this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(576, 22);
             this.FullNameTextBox.TabIndex = 2;
@@ -274,7 +274,7 @@
             // 
             this.PhotoPictureBox.Image = global::ContactsApp.View.Properties.Resources.photo_placeholder_100x100;
             this.PhotoPictureBox.Location = new System.Drawing.Point(4, 4);
-            this.PhotoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PhotoPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhotoPictureBox.Name = "PhotoPictureBox";
             this.PhotoPictureBox.Size = new System.Drawing.Size(133, 123);
             this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -289,7 +289,7 @@
             this.ContactsListPanel.Controls.Add(this.ContactsListBox);
             this.ContactsListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContactsListPanel.Location = new System.Drawing.Point(4, 4);
-            this.ContactsListPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContactsListPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ContactsListPanel.Name = "ContactsListPanel";
             this.ContactsListPanel.Size = new System.Drawing.Size(325, 546);
             this.ContactsListPanel.TabIndex = 1;
@@ -306,7 +306,7 @@
             this.ButtonsTableLayoutPanel.Controls.Add(this.EditContactButton, 1, 0);
             this.ButtonsTableLayoutPanel.Controls.Add(this.RemoveContactButton, 2, 0);
             this.ButtonsTableLayoutPanel.Location = new System.Drawing.Point(4, 500);
-            this.ButtonsTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonsTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonsTableLayoutPanel.Name = "ButtonsTableLayoutPanel";
             this.ButtonsTableLayoutPanel.RowCount = 1;
             this.ButtonsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -368,7 +368,7 @@
             // FindTextBox
             // 
             this.FindTextBox.Location = new System.Drawing.Point(52, 4);
-            this.FindTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FindTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(268, 22);
             this.FindTextBox.TabIndex = 1;
@@ -381,16 +381,8 @@
             this.ContactsListBox.FormattingEnabled = true;
             this.ContactsListBox.IntegralHeight = false;
             this.ContactsListBox.ItemHeight = 16;
-            this.ContactsListBox.Items.AddRange(new object[] {
-            "Тилль Линдеманн",
-            "Улитка из бара",
-            "Рихард Круспе",
-            "Пауль Ландерс",
-            "Оливер Ридель",
-            "Кристиан Лоренц",
-            "Кристоф Шнайдер"});
             this.ContactsListBox.Location = new System.Drawing.Point(4, 36);
-            this.ContactsListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContactsListBox.Margin = new System.Windows.Forms.Padding(4);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(316, 463);
             this.ContactsListBox.TabIndex = 0;
@@ -403,7 +395,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.MainTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
             this.Load += new System.EventHandler(this.MainForm_Load);

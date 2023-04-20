@@ -45,8 +45,24 @@ namespace ContactsApp.View
 
         private void RemoveContact(int index)
         {
-            _project.Contacts.RemoveAt(index);
-            UpdateListBox();
+            if (index == -1) {}
+            else
+            {
+                var contact = _project.Contacts[index];
+                DialogResult result = MessageBox.Show(
+                    "Вы точно хотите удалить " + contact.FullName + " ?", 
+                    "Подтверждение!", 
+                    MessageBoxButtons.OKCancel, 
+                    MessageBoxIcon.Question
+                );
+
+                if (result == DialogResult.OK)
+                {
+                    _project.Contacts.Remove(contact);
+                    UpdateListBox();
+                }
+                else if (result == DialogResult.Cancel) {}
+            }
         }
 
 
