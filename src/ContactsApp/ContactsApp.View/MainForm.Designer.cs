@@ -213,7 +213,6 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(232, 22);
             this.PhoneNumberTextBox.TabIndex = 6;
-            this.PhoneNumberTextBox.Text = "+7 (951) 620-11-36";
             this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
             // 
             // PhoneNumberLabel
@@ -235,7 +234,6 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(576, 22);
             this.EmailTextBox.TabIndex = 4;
-            this.EmailTextBox.Text = "cool_snail@gmail.com";
             this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
             // 
             // EmailLabel
@@ -257,7 +255,6 @@
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(576, 22);
             this.FullNameTextBox.TabIndex = 2;
-            this.FullNameTextBox.Text = "Улитка из бара в модной рубашке";
             this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
             // 
             // FullNameLabel
@@ -386,6 +383,7 @@
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(316, 463);
             this.ContactsListBox.TabIndex = 0;
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -398,6 +396,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MainTableLayoutPanel.ResumeLayout(false);

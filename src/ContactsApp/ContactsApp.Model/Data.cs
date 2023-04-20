@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Описывает тестовые данные
+    /// </summary>
     public class Data
     {
+        /// <summary>
+        /// Список имен
+        /// </summary>
         public List<string> fullnames = new List<string>
         {
             "Честер Беннингтон",
@@ -17,6 +23,9 @@ namespace ContactsApp.Model
             "Олег Абрамов",
         };
 
+        /// <summary>
+        /// Список электроонных ящиков
+        /// </summary>
         public List<string> emails = new List<string>
         {
             "InTheEnd@gmail.com",
@@ -26,6 +35,9 @@ namespace ContactsApp.Model
             "ILoveSabaton@gmail.com",
         };
 
+        /// <summary>
+        /// Список Телефонных номеров
+        /// </summary>
         public List<string> phoneNumbers = new List<string>
         {
             "+7(567)016-97-71",
@@ -35,6 +47,9 @@ namespace ContactsApp.Model
             "+7(991)746-70-59",
         };
 
+        /// <summary>
+        /// Список дат рождения
+        /// </summary>
         public List<DateTime> datesOfBirth = new List<DateTime>
         {
             new DateTime(1976, 3, 20),
@@ -44,6 +59,9 @@ namespace ContactsApp.Model
             new DateTime(1989, 12, 15),
         };
 
+        /// <summary>
+        /// Список id ВКонтакте
+        /// </summary>
         public List<string> vkIds = new List<string>
         {
             "breakingTheHabitTonight",
