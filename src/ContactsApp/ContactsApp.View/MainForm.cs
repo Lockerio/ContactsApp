@@ -20,16 +20,28 @@ namespace ContactsApp.View
         {
             ContactsListBox.Items.Clear();
 
-            var contacts = _project.Contacts;
-            foreach (var contact in contacts)
+            foreach (var contact in _project.Contacts)
             {
                 ContactsListBox.Items.Add(contact.FullName);
             }
         }
 
+        private void AddContact()
+        {
+            Data data = new Data();
+            Random rand = new Random();
+            int elementsAmount = 5;
 
+            Contact contact = new Contact(
+                data.fullnames[rand.Next(elementsAmount)],
+                data.emails[rand.Next(elementsAmount)],
+                data.phoneNumbers[rand.Next(elementsAmount)],
+                data.datesOfBirth[rand.Next(elementsAmount)],
+                data.vkIds[rand.Next(elementsAmount)]
+            );
 
-
+            _project.Contacts.Add(contact);
+        }
 
         public MainForm()
         {
