@@ -16,6 +16,10 @@ namespace ContactsApp.View
         private Contact _contact = new Contact("uhaiuh", "dfona@gmail.com", "+7779898799", DateTime.Now, "Locker");
 
         private string _fullnameError;
+        private string _emailError;
+        private string _phonenumberError;
+        private string _dateOfBirthError;
+        private string _vkIdError;
 
 
 
@@ -30,6 +34,33 @@ namespace ContactsApp.View
             VKTextBox.Text = _contact.VkId;
         }
 
+        private bool CheckFormOnErrors()
+        {
+            if (_fullnameError == "")
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(
+                    _fullnameError,
+                    "Ошибка!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return false;
+            }
+        }
+        
+
+        private void UpdateContact()
+        {
+            _contact.FullName = FullNameTextBox.Text;
+            _contact.Email = EmailTextBox.Text;
+            _contact.PhoneNumber = PhoneNumberTextBox.Text;
+            _contact.DateOfBirth = DateOfBirthTimePicker.Value;
+            _contact.VkId = VKTextBox.Text;
+        }
 
 
         public ContactForm()
@@ -75,6 +106,12 @@ namespace ContactsApp.View
                 _fullnameError = ex.Message;
             }
             
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            CheckFormOnErrors();
+            UpdateContact();
         }
     }
 }

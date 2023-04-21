@@ -125,7 +125,8 @@ namespace ContactsApp.Model
             {
                 //return value.Substring(0, maxLength);
                 throw new ArgumentException(
-                    "Amount of symbols is too high, you can use only " + value + " symbols");
+                    "Вы ввели слишком много информации. " +
+                    "Постарайтесь уложится в " + maxLength + " символов.");
             }
             else
             {
