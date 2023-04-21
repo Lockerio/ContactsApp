@@ -123,7 +123,9 @@ namespace ContactsApp.Model
             }
             else if (value.Length > maxLength)
             {
-                return value.Substring(0, maxLength);
+                //return value.Substring(0, maxLength);
+                throw new ArgumentException(
+                    "Amount of symbols is too high, you can use only " + value + " symbols");
             }
             else
             {

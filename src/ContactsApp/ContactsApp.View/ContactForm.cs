@@ -15,6 +15,11 @@ namespace ContactsApp.View
     {
         private Contact _contact = new Contact("uhaiuh", "dfona@gmail.com", "+7779898799", DateTime.Now, "Locker");
 
+        private string _fullnameError;
+
+
+
+
 
         private void UpdateForm()
         {
@@ -54,6 +59,22 @@ namespace ContactsApp.View
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FullNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _fullnameError = "";
+                _contact.FullName = FullNameTextBox.Text;
+                FullNameTextBox.BackColor = Color.White;
+            }
+            catch (ArgumentException ex)
+            {
+                FullNameTextBox.BackColor = Color.LightPink;
+                _fullnameError = ex.Message;
+            }
+            
         }
     }
 }
