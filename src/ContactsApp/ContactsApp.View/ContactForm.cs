@@ -13,7 +13,13 @@ namespace ContactsApp.View
 {
     public partial class ContactForm : Form
     {
-        private Contact _contact = new Contact("uhaiuh", "dfona@gmail.com", "+7779898799", DateTime.Now, "Locker");
+        private Contact _contact = new Contact(
+            "uhaiuh", 
+            "dfona@gmail.com", 
+            "+7779898799", 
+            DateTime.Now, 
+            "Locker"
+        );
 
         private string _fullnameError;
         private string _emailError;
@@ -34,16 +40,39 @@ namespace ContactsApp.View
             VKTextBox.Text = _contact.VkId;
         }
 
+        private bool AreThereWrongFields(List<string> errorTexts)
+        {
+            foreach (string errorText in errorTexts)
+            {
+                if (errorText != "")
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private bool CheckFormOnErrors()
         {
-            if (_fullnameError == "")
+            List<string> errorTexts = new List<string>
+            {
+                _fullnameError,
+                _emailError,
+                _phonenumberError,
+                _dateOfBirthError,
+                _vkIdError,
+            };
+
+            if (AreThereWrongFields(errorTexts))
             {
                 return true;
             }
             else
             {
+                string message = string.Join("\n*", errorTexts);
+
                 MessageBox.Show(
-                    _fullnameError,
+                    message,
                     "Ошибка!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -106,6 +135,62 @@ namespace ContactsApp.View
                 _fullnameError = ex.Message;
             }
             
+        }
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _emailError = "";
+                _contact.Email = EmailTextBox.Text;
+                EmailTextBox.BackColor = Color.White;
+            }
+            catch (ArgumentException ex)
+            {
+                EmailTextBox.BackColor = Color.LightPink;
+                _emailError = ex.Message;
+            }
+        }
+        private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _phonenumberError = "";
+                _contact.PhoneNumber = PhoneNumberTextBox.Text;
+                PhoneNumberTextBox.BackColor = Color.White;
+            }
+            catch (ArgumentException ex)
+            {
+                PhoneNumberTextBox.BackColor = Color.LightPink;
+                _phonenumberError = ex.Message;
+            }
+        }
+        private void DateOfBirthTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _dateOfBirthError = "";
+                _contact.DateOfBirth = DateOfBirthTimePicker.Value;
+                DateOfBirthTimePicker.BackColor = Color.White;
+            }
+            catch (ArgumentException ex)
+            {
+                DateOfBirthTimePicker.BackColor = Color.LightPink;
+                _dateOfBirthError = ex.Message;
+            }
+        }
+        private void VKTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _vkIdError = "";
+                _contact.VkId = VKTextBox.Text;
+                VKTextBox.BackColor = Color.White;
+            }
+            catch (ArgumentException ex)
+            {
+                VKTextBox.BackColor = Color.LightPink;
+                _vkIdError = ex.Message;
+            }
         }
 
         private void OKButton_Click(object sender, EventArgs e)
