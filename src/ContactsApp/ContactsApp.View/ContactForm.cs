@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace ContactsApp.View
         private Contact _contact = new Contact(
             "uhaiuh", 
             "dfona@gmail.com", 
-            "+7779898799", 
+            "+79516201136", 
             DateTime.Now, 
             "Locker"
         );
@@ -74,7 +75,7 @@ namespace ContactsApp.View
                 MessageBox.Show(
                     message,
                     "Ошибка!",
-                    MessageBoxButtons.OK,
+                    MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Error
                 );
                 return false;
@@ -127,11 +128,11 @@ namespace ContactsApp.View
             {
                 _fullnameError = "";
                 _contact.FullName = FullNameTextBox.Text;
-                FullNameTextBox.BackColor = Color.White;
+                FullNameLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
             {
-                FullNameTextBox.BackColor = Color.LightPink;
+                FullNameLabel.BackColor = Color.LightPink;
                 _fullnameError = ex.Message;
             }
             
@@ -142,11 +143,11 @@ namespace ContactsApp.View
             {
                 _emailError = "";
                 _contact.Email = EmailTextBox.Text;
-                EmailTextBox.BackColor = Color.White;
+                EmailLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
             {
-                EmailTextBox.BackColor = Color.LightPink;
+                EmailLabel.BackColor = Color.LightPink;
                 _emailError = ex.Message;
             }
         }
@@ -156,11 +157,11 @@ namespace ContactsApp.View
             {
                 _phonenumberError = "";
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
-                PhoneNumberTextBox.BackColor = Color.White;
+                PhoneNumberLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
             {
-                PhoneNumberTextBox.BackColor = Color.LightPink;
+                PhoneNumberLabel.BackColor = Color.LightPink;
                 _phonenumberError = ex.Message;
             }
         }
@@ -170,11 +171,11 @@ namespace ContactsApp.View
             {
                 _dateOfBirthError = "";
                 _contact.DateOfBirth = DateOfBirthTimePicker.Value;
-                DateOfBirthTimePicker.BackColor = Color.White;
+                DateOfBirthLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
             {
-                DateOfBirthTimePicker.BackColor = Color.LightPink;
+                DateOfBirthLabel.BackColor = Color.LightPink;
                 _dateOfBirthError = ex.Message;
             }
         }
@@ -184,11 +185,11 @@ namespace ContactsApp.View
             {
                 _vkIdError = "";
                 _contact.VkId = VKTextBox.Text;
-                VKTextBox.BackColor = Color.White;
+                VKLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
             {
-                VKTextBox.BackColor = Color.LightPink;
+                VKLabel.BackColor = Color.LightPink;
                 _vkIdError = ex.Message;
             }
         }

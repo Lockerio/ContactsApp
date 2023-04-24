@@ -141,20 +141,45 @@ namespace ContactsApp.Model
         /// <returns>Проверенный и отредактированный номер</returns>
         private string NormalizePhoneNumber(string value)
         {
-            if (value == null)
-            {
-                return null;
-            }
+            List<char> digitChars = value.Where(char.IsDigit).ToList();
+            int digitCharsCount = digitChars.Count;
+            int amountOfCharsInNumber = 10;
 
-            string normalized = "";
-            foreach (char c in value)
+            if (digitCharsCount >= 11 && digitCharsCount <= 14)
             {
-                if (Char.IsDigit(c) || c == '+' || c == '(' || c == ')' || c == '-' || c == ' ')
+                int startPosition = digitCharsCount - amountOfCharsInNumber;
+                string countryCode;
+
+                if (value[0] == 8)
                 {
-                    normalized += c;
+                    countryCode = "7";
                 }
+                else
+                {
+                    countryCode = string.Join("", digitChars.GetRange(0, startPosition));
+                }
+
+                List<char> number = digitChars.GetRange(startPosition, 10);
+
+                string numberPart1 = 
+                    string.Join("", digitChars.GetRange(0 + startPosition, 3));
+                string numberPart2 = 
+                    string.Join("", digitChars.GetRange(3 + startPosition, 3));
+                string numberPart3 = 
+                    string.Join("", digitChars.GetRange(6 + startPosition, 2));
+                string numberPart4 = 
+                    string.Join("", digitChars.GetRange(8 + startPosition, 2));
+
+                string normalizedNumber = 
+                    "+" + countryCode + " (" + numberPart1 + ") " + 
+                    numberPart2 + "-" + numberPart3 + "-" + numberPart4;
+
+                return normalizedNumber;
             }
-            return normalized;
+            else
+            {
+                throw new ArgumentException("Неверное количество цифр в телефонном номере.");
+            }
         }
 
         /// <summary>
@@ -168,11 +193,11 @@ namespace ContactsApp.Model
         {
             if (value < new DateTime(1900, 1, 1))
             {
-                throw new ArgumentException("Date of birth cannot be earlier than 1900.");
+                throw new ArgumentException("Дата рождения не может быть раньше, чем 1900 год.");
             }
             else if (value > DateTime.Now)
             {
-                throw new ArgumentException("Date of birth cannot be in the future.");
+                throw new ArgumentException("Дата рождения не может быть в будущем.");
             }
             else
             {
