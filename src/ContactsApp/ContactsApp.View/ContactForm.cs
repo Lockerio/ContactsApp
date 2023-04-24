@@ -12,26 +12,46 @@ using System.Windows.Forms;
 
 namespace ContactsApp.View
 {
+    /// <summary>
+    /// Описывает форму реедактирования контакта
+    /// </summary>
     public partial class ContactForm : Form
     {
+        /// <summary>
+        /// Экземпляр класса Contact
+        /// </summary>
         private Contact _contact = new Contact(
             "uhaiuh", 
             "dfona@gmail.com", 
-            "+79516201136", 
+            "89516201136", 
             DateTime.Now, 
             "Locker"
         );
 
+        /// <summary>
+        /// Текст ошибки поля fullname 
+        /// </summary>
         private string _fullnameError;
+        /// <summary>
+        /// Текст ошибки поля email 
+        /// </summary>
         private string _emailError;
-        private string _phonenumberError;
+        /// <summary>
+        /// Текст ошибки поля phoneNumber 
+        /// </summary>
+        private string _phoneNumberError;
+        /// <summary>
+        /// Текст ошибки поля dateOfBirth 
+        /// </summary>
         private string _dateOfBirthError;
+        /// <summary>
+        /// Текст ошибки поля vkId 
+        /// </summary>
         private string _vkIdError;
 
-
-
-
-
+        /// <summary>
+        /// Обновляет данные на форме
+        /// </summary>
         private void UpdateForm()
         {
             FullNameTextBox.Text = _contact.FullName;
@@ -41,48 +61,78 @@ namespace ContactsApp.View
             VKTextBox.Text = _contact.VkId;
         }
 
-        private bool AreThereWrongFields(List<string> errorTexts)
+        /// <summary>
+        /// Находит поля в которых есть ошибки
+        /// </summary>
+        /// <param name="errorTexts">Массив описания ошибок</param>
+        /// <returns>Индексы неправильных полей</returns>
+        private List<int> GetWrongFields(List<string> errorTexts)
         {
-            foreach (string errorText in errorTexts)
+            List<int> wrongFields = new List<int>();
+
+            for (int i = 0; i < errorTexts.Count; i++)
             {
-                if (errorText != "")
+                if (errorTexts[i] != "")
                 {
-                    return false;
+                    wrongFields.Add(i);
                 }
             }
-            return true;
+            return wrongFields;
         }
 
-        private bool CheckFormOnErrors()
+        /// <summary>
+        /// Проверяет поля формы на ошибки
+        /// </summary>
+        /// <returns>True - ошибки есть, False - ошибок нет</returns>
+        private bool DoesFormHaveErrors()
         {
+            List<string> fieldsNames = new List<string>
+            {
+                "Имя",
+                "Электронная почта",
+                "Номер телефона",
+                "Дата рождения",
+                "VKId",
+            };
+
             List<string> errorTexts = new List<string>
             {
                 _fullnameError,
                 _emailError,
-                _phonenumberError,
+                _phoneNumberError,
                 _dateOfBirthError,
                 _vkIdError,
             };
 
-            if (AreThereWrongFields(errorTexts))
+            List<int> wrongFields = GetWrongFields(errorTexts);
+            
+            if (wrongFields.Count == 0)
             {
-                return true;
+                return false;
             }
             else
             {
-                string message = string.Join("\n*", errorTexts);
+                string message = "У вас возникли следущие ошибки:\n\n";
+
+                foreach (int wrongField in wrongFields)
+                {
+                    message += "* " + fieldsNames[wrongField] + " контакта. "
+                        +  errorTexts[wrongField] + "\n\n";
+                }
 
                 MessageBox.Show(
                     message,
                     "Ошибка!",
-                    MessageBoxButtons.OKCancel,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-                return false;
+                return true;
             }
         }
         
-
+        /// <summary>
+        /// Обновляет данные контакта
+        /// </summary>
         private void UpdateContact()
         {
             _contact.FullName = FullNameTextBox.Text;
@@ -92,7 +142,9 @@ namespace ContactsApp.View
             _contact.VkId = VKTextBox.Text;
         }
 
-
+        /// <summary>
+        /// Конструктор формы
+        /// </summary>
         public ContactForm()
         {
             InitializeComponent();
@@ -100,16 +152,53 @@ namespace ContactsApp.View
         }
 
 
+        /// <summary>
+        /// Обработка события нажатия на кнопку "OK"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            if (!DoesFormHaveErrors())
+            {
+                UpdateContact();
+            }
+        }
+        /// <summary>
+        /// Обработка события нажатия на кнопку "Cancel"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         // AddPhotoButton
+        /// <summary>
+        /// Обработка события нажатия на кнопку "Добавить фото"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void AddPhotoButton_Click(object sender, EventArgs e)
         {
 
         }
+        /// <summary>
+        /// Обработка события наведения курсора на кнопку "Добавить фото"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
             AddPhotoButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
         }
+        /// <summary>
+        /// Обработка события смещения курсора с кнопки "Добавить фото"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
         {
             AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
@@ -117,11 +206,11 @@ namespace ContactsApp.View
         }
 
 
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        /// <summary>
+        /// Обработка события изменения текста в "FullNameTextBox"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -137,6 +226,11 @@ namespace ContactsApp.View
             }
             
         }
+        /// <summary>
+        /// Обработка события изменения текста в "EmailTextBox"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -151,20 +245,30 @@ namespace ContactsApp.View
                 _emailError = ex.Message;
             }
         }
+        /// <summary>
+        /// Обработка события изменения текста в "PhoneNumberTextBox"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _phonenumberError = "";
+                _phoneNumberError = "";
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
                 PhoneNumberLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
             {
                 PhoneNumberLabel.BackColor = Color.LightPink;
-                _phonenumberError = ex.Message;
+                _phoneNumberError = ex.Message;
             }
         }
+        /// <summary>
+        /// Обработка события изменения значения в "DateOfBirthTimePicker"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void DateOfBirthTimePicker_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -179,6 +283,11 @@ namespace ContactsApp.View
                 _dateOfBirthError = ex.Message;
             }
         }
+        /// <summary>
+        /// Обработка события изменения текста в "VKTextBox"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -192,12 +301,6 @@ namespace ContactsApp.View
                 VKLabel.BackColor = Color.LightPink;
                 _vkIdError = ex.Message;
             }
-        }
-
-        private void OKButton_Click(object sender, EventArgs e)
-        {
-            CheckFormOnErrors();
-            UpdateContact();
         }
     }
 }

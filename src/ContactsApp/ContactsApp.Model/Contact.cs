@@ -123,10 +123,7 @@ namespace ContactsApp.Model
             }
             else if (value.Length > maxLength)
             {
-                //return value.Substring(0, maxLength);
-                throw new ArgumentException(
-                    "Вы ввели слишком много информации. " +
-                    "Постарайтесь уложится в " + maxLength + " символов.");
+                throw new ArgumentException("Вы превысили лимит в " + maxLength +  " символов.");
             }
             else
             {
@@ -149,8 +146,8 @@ namespace ContactsApp.Model
             {
                 int startPosition = digitCharsCount - amountOfCharsInNumber;
                 string countryCode;
-
-                if (value[0] == 8)
+                
+                if (value[0] == '8')
                 {
                     countryCode = "7";
                 }
@@ -172,7 +169,7 @@ namespace ContactsApp.Model
 
                 string normalizedNumber = 
                     "+" + countryCode + " (" + numberPart1 + ") " + 
-                    numberPart2 + "-" + numberPart3 + "-" + numberPart4;
+                    numberPart2 + "-" + numberPart3 + "-" + numberPart4 + " ";
 
                 return normalizedNumber;
             }
