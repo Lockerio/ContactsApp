@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -193,11 +194,30 @@ namespace ContactsApp.View
         /// <param name="e">Аргументы события</param>
         private void AddContactButton_Click(object sender, EventArgs e)
         {
-            ClearSelectedContact();
-            AddContact();
-            UpdateListBox();
-            //var form = new ContactForm();
-            //form.ShowDialog();
+            //ClearSelectedContact();
+            //AddContact();
+            //UpdateListBox();
+            var contactForm = new ContactForm();
+            DialogResult result = contactForm.ShowDialog();
+
+
+
+            if (result == DialogResult.OK)
+            {
+                _project.Contacts.Add(contactForm.Contact);
+                Console.WriteLine(contactForm.Contact);
+                UpdateListBox();
+            }
+            else
+            {
+                
+            }
+
+
+
+
+
+
         }
         /// <summary>
         /// Обработка события наведения курсора на кнопку "Добавить контакт"

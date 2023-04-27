@@ -21,12 +21,15 @@ namespace ContactsApp.View
         /// Экземпляр класса Contact
         /// </summary>
         private Contact _contact = new Contact(
-            "uhaiuh", 
-            "dfona@gmail.com", 
-            "89516201136", 
-            DateTime.Now, 
-            "Locker"
+            "", 
+            "", 
+            "80000000000", 
+            DateTime.Today, 
+            ""
         );
+
+        public Contact Contact { get { return _contact; } set { _contact = value; } }
+
 
         /// <summary>
         /// Текст ошибки поля fullname 
@@ -54,11 +57,11 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateForm()
         {
-            FullNameTextBox.Text = _contact.FullName;
-            EmailTextBox.Text = _contact.Email;
-            PhoneNumberTextBox.Text = _contact.PhoneNumber;
-            DateOfBirthTimePicker.Value = _contact.DateOfBirth;
-            VKTextBox.Text = _contact.VkId;
+            FullNameTextBox.Text = Contact.FullName;
+            EmailTextBox.Text = Contact.Email;
+            PhoneNumberTextBox.Text = Contact.PhoneNumber;
+            DateOfBirthTimePicker.Value = Contact.DateOfBirth;
+            VKTextBox.Text = Contact.VkId;
         }
 
         /// <summary>
@@ -135,11 +138,11 @@ namespace ContactsApp.View
         /// </summary>
         private void UpdateContact()
         {
-            _contact.FullName = FullNameTextBox.Text;
-            _contact.Email = EmailTextBox.Text;
-            _contact.PhoneNumber = PhoneNumberTextBox.Text;
-            _contact.DateOfBirth = DateOfBirthTimePicker.Value;
-            _contact.VkId = VKTextBox.Text;
+            Contact.FullName = FullNameTextBox.Text;
+            Contact.Email = EmailTextBox.Text;
+            Contact.PhoneNumber = PhoneNumberTextBox.Text;
+            Contact.DateOfBirth = DateOfBirthTimePicker.Value;
+            Contact.VkId = VKTextBox.Text;
         }
 
         /// <summary>
@@ -162,6 +165,7 @@ namespace ContactsApp.View
             if (!DoesFormHaveErrors())
             {
                 UpdateContact();
+                Close();
             }
         }
         /// <summary>
@@ -216,7 +220,7 @@ namespace ContactsApp.View
             try
             {
                 _fullnameError = "";
-                _contact.FullName = FullNameTextBox.Text;
+                Contact.FullName = FullNameTextBox.Text;
                 FullNameLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
@@ -236,7 +240,7 @@ namespace ContactsApp.View
             try
             {
                 _emailError = "";
-                _contact.Email = EmailTextBox.Text;
+                Contact.Email = EmailTextBox.Text;
                 EmailLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
@@ -255,7 +259,7 @@ namespace ContactsApp.View
             try
             {
                 _phoneNumberError = "";
-                _contact.PhoneNumber = PhoneNumberTextBox.Text;
+                Contact.PhoneNumber = PhoneNumberTextBox.Text;
                 PhoneNumberLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
@@ -274,7 +278,7 @@ namespace ContactsApp.View
             try
             {
                 _dateOfBirthError = "";
-                _contact.DateOfBirth = DateOfBirthTimePicker.Value;
+                Contact.DateOfBirth = DateOfBirthTimePicker.Value;
                 DateOfBirthLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
@@ -293,7 +297,7 @@ namespace ContactsApp.View
             try
             {
                 _vkIdError = "";
-                _contact.VkId = VKTextBox.Text;
+                Contact.VkId = VKTextBox.Text;
                 VKLabel.BackColor = Color.White;
             }
             catch (ArgumentException ex)
