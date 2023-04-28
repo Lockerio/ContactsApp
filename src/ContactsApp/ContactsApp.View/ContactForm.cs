@@ -21,11 +21,11 @@ namespace ContactsApp.View
         /// Экземпляр класса Contact
         /// </summary>
         private Contact _contact = new Contact(
-            "uhaiuh", 
-            "dfona@gmail.com", 
+            "Горюнов Аркадий", 
+            "goryunov.arkadiy@gmail.com", 
             "89516201136", 
             DateTime.Now, 
-            "Locker"
+            "Lockerio"
         );
 
         /// <summary>
