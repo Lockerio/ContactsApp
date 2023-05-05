@@ -67,7 +67,7 @@ namespace ContactsApp.Model
             get { return _fullName; }
             set 
             {
-                var truncated = TruncateString(value, 100);
+                var truncated = TruncateString(value, 100, nameof(FullName));
                 var textInfo = CultureInfo.CurrentCulture.TextInfo;
                 _fullName = textInfo.ToTitleCase(truncated.ToLower());
             }
@@ -79,7 +79,7 @@ namespace ContactsApp.Model
         public string Email
         {
             get { return _email; }
-            set { _email = TruncateString(value, 100); }
+            set { _email = TruncateString(value, 100, nameof(Email)); }
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace ContactsApp.Model
         public string PhoneNumber
         {
             get { return _phoneNumber; }
-            set { _phoneNumber = NormalizePhoneNumber(value); }
+            set { _phoneNumber = NormalizePhoneNumber(value, nameof(PhoneNumber)); }
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace ContactsApp.Model
         public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
-            set { _dateOfBirth = ValidateDateOfBirth(value); }
+            set { _dateOfBirth = ValidateDateOfBirth(value, nameof(DateOfBirth)); }
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace ContactsApp.Model
         public string VkId
         {
             get { return _vkId; }
-            set { _vkId = TruncateString(value, 50); }
+            set { _vkId = TruncateString(value, 50, nameof(VkId)); }
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace ContactsApp.Model
         /// <param name="value">Введенная строка</param>
         /// <param name="maxLength">Максимальная длина</param>
         /// <returns>Проверенную и отредактированную строку</returns>
-        private string TruncateString(string value, int maxLength)
+        private string TruncateString(string value, int maxLength, string fieldName)
         {
             if (value == null)
             {
@@ -123,7 +123,8 @@ namespace ContactsApp.Model
             }
             else if (value.Length > maxLength)
             {
-                throw new ArgumentException("Вы превысили лимит в " + maxLength +  " символов.");
+                string messege = fieldName + ": Вы превысили лимит в " + maxLength + " символов.";
+                throw new ArgumentException(messege);
             }
             else
             {
@@ -136,7 +137,7 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="value">Введенный телефонный номер</param>
         /// <returns>Проверенный и отредактированный номер</returns>
-        private string NormalizePhoneNumber(string value)
+        private string NormalizePhoneNumber(string value, string fieldName)
         {
             List<char> digitChars = value.Where(char.IsDigit).ToList();
             int digitCharsCount = digitChars.Count;
@@ -175,7 +176,8 @@ namespace ContactsApp.Model
             }
             else
             {
-                throw new ArgumentException("Неверное количество цифр в телефонном номере.");
+                string messege = fieldName + ": Неверное количество цифр в телефонном номере.";
+                throw new ArgumentException(messege);
             }
         }
 
@@ -186,15 +188,17 @@ namespace ContactsApp.Model
         /// <returns>Проверенная дата</returns>
         /// <exception cref="ArgumentException">Дата должна быть поздее, чем 1900 год,
         /// и не должна быть в будущем</exception>
-        private DateTime ValidateDateOfBirth(DateTime value)
+        private DateTime ValidateDateOfBirth(DateTime value, string fieldName)
         {
             if (value < new DateTime(1900, 1, 1))
             {
-                throw new ArgumentException("Дата рождения не может быть раньше, чем 1900 год.");
+                string messege = fieldName + ": Дата рождения не может быть раньше, чем 1900 год.";
+                throw new ArgumentException(messege);
             }
             else if (value > DateTime.Now)
             {
-                throw new ArgumentException("Дата рождения не может быть в будущем.");
+                string messege = fieldName + ": Дата рождения не может быть в будущем.";
+                throw new ArgumentException(messege);
             }
             else
             {

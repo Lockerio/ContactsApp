@@ -86,15 +86,6 @@ namespace ContactsApp.View
         /// <returns>True - ошибки есть, False - ошибок нет</returns>
         private bool DoesFormHaveErrors()
         {
-            List<string> fieldsNames = new List<string>
-            {
-                "Имя",
-                "Электронная почта",
-                "Номер телефона",
-                "Дата рождения",
-                "VKId",
-            };
-
             List<string> errorTexts = new List<string>
             {
                 _fullnameError,
@@ -112,13 +103,9 @@ namespace ContactsApp.View
             }
             else
             {
-                string message = "У вас возникли следущие ошибки:\n\n";
-
-                foreach (int wrongField in wrongFields)
-                {
-                    message += "* " + fieldsNames[wrongField] + " контакта. "
-                        +  errorTexts[wrongField] + "\n\n";
-                }
+                string message = "У вас возникли следующие ошибки:\n\n";
+                var request = wrongFields.Select(wrongField => $"* {errorTexts[wrongField]}");
+                message += string.Join("\n\n", request);
 
                 MessageBox.Show(
                     message,
@@ -219,10 +206,10 @@ namespace ContactsApp.View
                 _contact.FullName = FullNameTextBox.Text;
                 FullNamePictureBox.Visible = false;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException exception)
             {
                 FullNamePictureBox.Visible = true;
-                _fullnameError = ex.Message;
+                _fullnameError = exception.Message;
             }
             
         }
@@ -239,10 +226,10 @@ namespace ContactsApp.View
                 _contact.Email = EmailTextBox.Text;
                 EmailPictureBox.Visible = false;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException exception)
             {
                 EmailPictureBox.Visible = true;
-                _emailError = ex.Message;
+                _emailError = exception.Message;
             }
         }
         /// <summary>
@@ -258,10 +245,10 @@ namespace ContactsApp.View
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
                 PhoneNumberPictureBox.Visible = false;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException exception)
             {
                 PhoneNumberPictureBox.Visible = true;
-                _phoneNumberError = ex.Message;
+                _phoneNumberError = exception.Message;
             }
         }
         /// <summary>
@@ -277,10 +264,10 @@ namespace ContactsApp.View
                 _contact.DateOfBirth = DateOfBirthTimePicker.Value;
                 DateOfBirthPictureBox.Visible = false;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException exception)
             {
                 DateOfBirthPictureBox.Visible = true;
-                _dateOfBirthError = ex.Message;
+                _dateOfBirthError = exception.Message;
             }
         }
         /// <summary>
@@ -296,10 +283,10 @@ namespace ContactsApp.View
                 _contact.VkId = VKTextBox.Text;
                 VKPictureBox.Visible = false;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException exception)
             {
                 VKPictureBox.Visible = true;
-                _vkIdError = ex.Message;
+                _vkIdError = exception.Message;
             }
         }
     }

@@ -41,16 +41,8 @@ namespace ContactsApp.View
         private void AddContact()
         {
             Data data = new Data();
-            Random rand = new Random();
-            int elementsAmount = 5;
 
-            Contact contact = new Contact(
-                data.fullnames[rand.Next(elementsAmount)],
-                data.emails[rand.Next(elementsAmount)],
-                data.phoneNumbers[rand.Next(elementsAmount)],
-                data.datesOfBirth[rand.Next(elementsAmount)],
-                data.vkIds[rand.Next(elementsAmount)]
-            );
+            Contact contact = data.CreateContact();
 
             _project.Contacts.Add(contact);
         }
@@ -61,24 +53,25 @@ namespace ContactsApp.View
         /// <param name="index">Индекс текущего контакта</param>
         private void RemoveContact(int index)
         {
-            if (index == -1) {}
-            else
+            if (index == -1) 
             {
-                var contact = _project.Contacts[index];
-                DialogResult result = MessageBox.Show(
-                    "Вы точно хотите удалить " + contact.FullName + " ?",
-                    "Подтверждение!", 
-                    MessageBoxButtons.OKCancel, 
-                    MessageBoxIcon.Question
-                );
-
-                if (result == DialogResult.OK)
-                {
-                    _project.Contacts.Remove(contact);
-                    UpdateListBox();
-                }
-                else if (result == DialogResult.Cancel) {}
+                return;
             }
+
+            var contact = _project.Contacts[index];
+            DialogResult result = MessageBox.Show(
+                "Вы точно хотите удалить " + contact.FullName + " ?",
+                "Подтверждение!",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+                _project.Contacts.Remove(contact);
+                UpdateListBox();
+            }
+            else if (result == DialogResult.Cancel) { }
         }
 
         /// <summary>
@@ -196,6 +189,9 @@ namespace ContactsApp.View
             ClearSelectedContact();
             AddContact();
             UpdateListBox();
+
+            // Раскоментировать, когда будет создаваться контакт через форму ContactForm,
+            // а не через рандом
             //var form = new ContactForm();
             //form.ShowDialog();
         }

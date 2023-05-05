@@ -14,7 +14,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Список имен
         /// </summary>
-        public List<string> fullnames = new List<string>
+        private List<string> fullnames = new List<string>
         {
             "Честер Беннингтон",
             "Серега Пират",
@@ -26,7 +26,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Список электроонных ящиков
         /// </summary>
-        public List<string> emails = new List<string>
+        private List<string> emails = new List<string>
         {
             "InTheEnd@gmail.com",
             "pochemuTiEschoNeFanat@main.ru",
@@ -38,7 +38,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Список Телефонных номеров
         /// </summary>
-        public List<string> phoneNumbers = new List<string>
+        private List<string> phoneNumbers = new List<string>
         {
             "+7(567)016-97-71",
             "+7(400)818-92-19",
@@ -50,7 +50,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Список дат рождения
         /// </summary>
-        public List<DateTime> datesOfBirth = new List<DateTime>
+        private List<DateTime> datesOfBirth = new List<DateTime>
         {
             new DateTime(1976, 3, 20),
             new DateTime(1998, 4, 21),
@@ -62,7 +62,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Список id ВКонтакте
         /// </summary>
-        public List<string> vkIds = new List<string>
+        private List<string> vkIds = new List<string>
         {
             "breakingTheHabitTonight",
             "serega_pirat",
@@ -70,5 +70,19 @@ namespace ContactsApp.Model
             "hateUrGF",
             "radiotapok",
         };
+
+        public Contact CreateContact()
+        {
+            Random rand = new Random();
+
+            Contact contact = new Contact(
+                fullnames[rand.Next(fullnames.Count)],
+                emails[rand.Next(emails.Count)],
+                phoneNumbers[rand.Next(phoneNumbers.Count)],
+                datesOfBirth[rand.Next(datesOfBirth.Count)],
+                vkIds[rand.Next(vkIds.Count)]
+            );
+            return contact;
+        }
     }
 }
