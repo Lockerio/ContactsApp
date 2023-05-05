@@ -217,11 +217,11 @@ namespace ContactsApp.View
             {
                 _fullnameError = "";
                 _contact.FullName = FullNameTextBox.Text;
-                FullNameLabel.BackColor = Color.White;
+                FullNamePictureBox.Visible = false;
             }
             catch (ArgumentException ex)
             {
-                FullNameLabel.BackColor = Color.LightPink;
+                FullNamePictureBox.Visible = true;
                 _fullnameError = ex.Message;
             }
             
@@ -237,11 +237,11 @@ namespace ContactsApp.View
             {
                 _emailError = "";
                 _contact.Email = EmailTextBox.Text;
-                EmailLabel.BackColor = Color.White;
+                EmailPictureBox.Visible = false;
             }
             catch (ArgumentException ex)
             {
-                EmailLabel.BackColor = Color.LightPink;
+                EmailPictureBox.Visible = true;
                 _emailError = ex.Message;
             }
         }
@@ -256,11 +256,11 @@ namespace ContactsApp.View
             {
                 _phoneNumberError = "";
                 _contact.PhoneNumber = PhoneNumberTextBox.Text;
-                PhoneNumberLabel.BackColor = Color.White;
+                PhoneNumberPictureBox.Visible = false;
             }
             catch (ArgumentException ex)
             {
-                PhoneNumberLabel.BackColor = Color.LightPink;
+                PhoneNumberPictureBox.Visible = true;
                 _phoneNumberError = ex.Message;
             }
         }
@@ -275,11 +275,11 @@ namespace ContactsApp.View
             {
                 _dateOfBirthError = "";
                 _contact.DateOfBirth = DateOfBirthTimePicker.Value;
-                DateOfBirthLabel.BackColor = Color.White;
+                DateOfBirthPictureBox.Visible = false;
             }
             catch (ArgumentException ex)
             {
-                DateOfBirthLabel.BackColor = Color.LightPink;
+                DateOfBirthPictureBox.Visible = true;
                 _dateOfBirthError = ex.Message;
             }
         }
@@ -294,11 +294,11 @@ namespace ContactsApp.View
             {
                 _vkIdError = "";
                 _contact.VkId = VKTextBox.Text;
-                VKLabel.BackColor = Color.White;
+                VKPictureBox.Visible = false;
             }
             catch (ArgumentException ex)
             {
-                VKLabel.BackColor = Color.LightPink;
+                VKPictureBox.Visible = true;
                 _vkIdError = ex.Message;
             }
         }

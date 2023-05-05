@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ContactsApp_96x96.ico" />
+    <None Include="Resources\icon_error_30_30.png" />
     <None Include="Resources\remove_contact_32x32_gray.png" />
     <None Include="Resources\remove_contact_32x32.png" />
     <None Include="Resources\photo_placeholder_100x100.png" />

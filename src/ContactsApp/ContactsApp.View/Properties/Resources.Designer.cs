@@ -143,6 +143,16 @@ namespace ContactsApp.View.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_error_30_30 {
+            get {
+                object obj = ResourceManager.GetObject("icon_error_30_30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap info_48x48 {
             get {
                 object obj = ResourceManager.GetObject("info_48x48", resourceCulture);

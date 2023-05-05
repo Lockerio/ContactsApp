@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactForm));
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VKLabel = new System.Windows.Forms.Label();
             this.DateOfBirthLabel = new System.Windows.Forms.Label();
@@ -37,21 +38,31 @@
             this.EmailLabel = new System.Windows.Forms.Label();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
-            this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
-            this.AddPhotoButton = new System.Windows.Forms.PictureBox();
             this.DateOfBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DialogPanel = new System.Windows.Forms.Panel();
             this.OKButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).BeginInit();
+            this.AddPhotoButton = new System.Windows.Forms.PictureBox();
+            this.PhotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.FullNamePictureBox = new System.Windows.Forms.PictureBox();
+            this.EmailPictureBox = new System.Windows.Forms.PictureBox();
+            this.PhoneNumberPictureBox = new System.Windows.Forms.PictureBox();
+            this.DateOfBirthPictureBox = new System.Windows.Forms.PictureBox();
+            this.VKPictureBox = new System.Windows.Forms.PictureBox();
             this.DialogPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FullNamePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmailPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhoneNumberPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DateOfBirthPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // VKTextBox
             // 
             this.VKTextBox.Location = new System.Drawing.Point(157, 279);
-            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VKTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(232, 22);
             this.VKTextBox.TabIndex = 21;
@@ -80,7 +91,7 @@
             // PhoneNumberTextBox
             // 
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(157, 159);
-            this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(232, 22);
             this.PhoneNumberTextBox.TabIndex = 17;
@@ -102,7 +113,7 @@
             this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailTextBox.Location = new System.Drawing.Point(157, 98);
-            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(484, 22);
             this.EmailTextBox.TabIndex = 15;
@@ -124,7 +135,7 @@
             this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FullNameTextBox.Location = new System.Drawing.Point(157, 38);
-            this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FullNameTextBox.Name = "FullNameTextBox";
             this.FullNameTextBox.Size = new System.Drawing.Size(484, 22);
             this.FullNameTextBox.TabIndex = 13;
@@ -141,38 +152,12 @@
             this.FullNameLabel.TabIndex = 12;
             this.FullNameLabel.Text = "Full name:";
             // 
-            // PhotoPictureBox
-            // 
-            this.PhotoPictureBox.Image = global::ContactsApp.View.Properties.Resources.photo_placeholder_100x100;
-            this.PhotoPictureBox.Location = new System.Drawing.Point(16, 15);
-            this.PhotoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.PhotoPictureBox.Name = "PhotoPictureBox";
-            this.PhotoPictureBox.Size = new System.Drawing.Size(133, 123);
-            this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PhotoPictureBox.TabIndex = 11;
-            this.PhotoPictureBox.TabStop = false;
-            // 
-            // AddPhotoButton
-            // 
-            this.AddPhotoButton.BackColor = System.Drawing.Color.White;
-            this.AddPhotoButton.Image = global::ContactsApp.View.Properties.Resources.add_photo_32x32_gray;
-            this.AddPhotoButton.Location = new System.Drawing.Point(61, 145);
-            this.AddPhotoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.AddPhotoButton.Name = "AddPhotoButton";
-            this.AddPhotoButton.Size = new System.Drawing.Size(43, 39);
-            this.AddPhotoButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.AddPhotoButton.TabIndex = 22;
-            this.AddPhotoButton.TabStop = false;
-            this.AddPhotoButton.Click += new System.EventHandler(this.AddPhotoButton_Click);
-            this.AddPhotoButton.MouseEnter += new System.EventHandler(this.AddPhotoButton_MouseEnter);
-            this.AddPhotoButton.MouseLeave += new System.EventHandler(this.AddPhotoButton_MouseLeave);
-            // 
             // DateOfBirthTimePicker
             // 
             this.DateOfBirthTimePicker.CalendarMonthBackground = System.Drawing.SystemColors.Control;
             this.DateOfBirthTimePicker.CalendarTitleBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.DateOfBirthTimePicker.Location = new System.Drawing.Point(157, 219);
-            this.DateOfBirthTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DateOfBirthTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DateOfBirthTimePicker.Name = "DateOfBirthTimePicker";
             this.DateOfBirthTimePicker.Size = new System.Drawing.Size(232, 22);
             this.DateOfBirthTimePicker.TabIndex = 23;
@@ -193,7 +178,7 @@
             // OKButton
             // 
             this.OKButton.Location = new System.Drawing.Point(435, 17);
-            this.OKButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OKButton.Margin = new System.Windows.Forms.Padding(4);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(100, 28);
             this.OKButton.TabIndex = 1;
@@ -204,7 +189,7 @@
             // CancelButton
             // 
             this.CancelButton.Location = new System.Drawing.Point(543, 17);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(100, 28);
             this.CancelButton.TabIndex = 0;
@@ -212,12 +197,93 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // AddPhotoButton
+            // 
+            this.AddPhotoButton.BackColor = System.Drawing.Color.White;
+            this.AddPhotoButton.Image = global::ContactsApp.View.Properties.Resources.add_photo_32x32_gray;
+            this.AddPhotoButton.Location = new System.Drawing.Point(61, 145);
+            this.AddPhotoButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AddPhotoButton.Name = "AddPhotoButton";
+            this.AddPhotoButton.Size = new System.Drawing.Size(43, 39);
+            this.AddPhotoButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.AddPhotoButton.TabIndex = 22;
+            this.AddPhotoButton.TabStop = false;
+            this.AddPhotoButton.Click += new System.EventHandler(this.AddPhotoButton_Click);
+            this.AddPhotoButton.MouseEnter += new System.EventHandler(this.AddPhotoButton_MouseEnter);
+            this.AddPhotoButton.MouseLeave += new System.EventHandler(this.AddPhotoButton_MouseLeave);
+            // 
+            // PhotoPictureBox
+            // 
+            this.PhotoPictureBox.Image = global::ContactsApp.View.Properties.Resources.photo_placeholder_100x100;
+            this.PhotoPictureBox.Location = new System.Drawing.Point(16, 15);
+            this.PhotoPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.PhotoPictureBox.Name = "PhotoPictureBox";
+            this.PhotoPictureBox.Size = new System.Drawing.Size(133, 123);
+            this.PhotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PhotoPictureBox.TabIndex = 11;
+            this.PhotoPictureBox.TabStop = false;
+            // 
+            // FullNamePictureBox
+            // 
+            this.FullNamePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("FullNamePictureBox.Image")));
+            this.FullNamePictureBox.Location = new System.Drawing.Point(232, 18);
+            this.FullNamePictureBox.Name = "FullNamePictureBox";
+            this.FullNamePictureBox.Size = new System.Drawing.Size(16, 16);
+            this.FullNamePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FullNamePictureBox.TabIndex = 25;
+            this.FullNamePictureBox.TabStop = false;
+            // 
+            // EmailPictureBox
+            // 
+            this.EmailPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("EmailPictureBox.Image")));
+            this.EmailPictureBox.Location = new System.Drawing.Point(212, 79);
+            this.EmailPictureBox.Name = "EmailPictureBox";
+            this.EmailPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.EmailPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.EmailPictureBox.TabIndex = 26;
+            this.EmailPictureBox.TabStop = false;
+            // 
+            // PhoneNumberPictureBox
+            // 
+            this.PhoneNumberPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("PhoneNumberPictureBox.Image")));
+            this.PhoneNumberPictureBox.Location = new System.Drawing.Point(261, 139);
+            this.PhoneNumberPictureBox.Name = "PhoneNumberPictureBox";
+            this.PhoneNumberPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.PhoneNumberPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PhoneNumberPictureBox.TabIndex = 27;
+            this.PhoneNumberPictureBox.TabStop = false;
+            // 
+            // DateOfBirthPictureBox
+            // 
+            this.DateOfBirthPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("DateOfBirthPictureBox.Image")));
+            this.DateOfBirthPictureBox.Location = new System.Drawing.Point(246, 199);
+            this.DateOfBirthPictureBox.Name = "DateOfBirthPictureBox";
+            this.DateOfBirthPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.DateOfBirthPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DateOfBirthPictureBox.TabIndex = 28;
+            this.DateOfBirthPictureBox.TabStop = false;
+            // 
+            // VKPictureBox
+            // 
+            this.VKPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("VKPictureBox.Image")));
+            this.VKPictureBox.Location = new System.Drawing.Point(191, 260);
+            this.VKPictureBox.Name = "VKPictureBox";
+            this.VKPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.VKPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.VKPictureBox.TabIndex = 29;
+            this.VKPictureBox.TabStop = false;
+            // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(659, 390);
+            this.Controls.Add(this.VKPictureBox);
+            this.Controls.Add(this.DateOfBirthPictureBox);
+            this.Controls.Add(this.PhoneNumberPictureBox);
+            this.Controls.Add(this.EmailPictureBox);
+            this.Controls.Add(this.FullNamePictureBox);
             this.Controls.Add(this.DialogPanel);
             this.Controls.Add(this.DateOfBirthTimePicker);
             this.Controls.Add(this.AddPhotoButton);
@@ -232,13 +298,18 @@
             this.Controls.Add(this.FullNameLabel);
             this.Controls.Add(this.PhotoPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ContactForm";
             this.ShowIcon = false;
-            ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).EndInit();
             this.DialogPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FullNamePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmailPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PhoneNumberPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DateOfBirthPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VKPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +332,10 @@
         private System.Windows.Forms.Panel DialogPanel;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.PictureBox FullNamePictureBox;
+        private System.Windows.Forms.PictureBox EmailPictureBox;
+        private System.Windows.Forms.PictureBox PhoneNumberPictureBox;
+        private System.Windows.Forms.PictureBox DateOfBirthPictureBox;
+        private System.Windows.Forms.PictureBox VKPictureBox;
     }
 }
