@@ -41,7 +41,6 @@ namespace ContactsApp.View
             foreach (var contact in _currentContacts)
             {
                 ContactsListBox.Items.Add(contact.FullName);
-                Console.WriteLine(contact.FullName);
             }
         }
 
@@ -75,7 +74,7 @@ namespace ContactsApp.View
         private void EditObject(int index)
         {
             ContactForm contactForm = new ContactForm();
-            Contact contact = _project.Contacts[index].Clone() as Contact;
+            Contact contact = _currentContacts[index].Clone() as Contact;
             contactForm.Contact = contact;
             contactForm.UpdateForm();
 
@@ -83,9 +82,10 @@ namespace ContactsApp.View
 
             if (result == DialogResult.OK)
             {
-                _project.Contacts[index] = contactForm.Contact;
+                int realIndex = _project.Contacts.IndexOf(_currentContacts[index]);
+                _project.Contacts[realIndex] = contactForm.Contact;
                 UpdateListBox();
-                UpdateSelectedContact(index);
+                UpdateSelectedContact(_currentContacts.IndexOf(contact));
             }
             else if (result == DialogResult.Cancel) { }
         }
@@ -101,7 +101,7 @@ namespace ContactsApp.View
                 return;
             }
 
-            var contact = _project.Contacts[index];
+            var contact = _currentContacts[index];
             DialogResult result = MessageBox.Show(
                 "Вы точно хотите удалить " + contact.FullName + " ?",
                 "Подтверждение!",
@@ -123,7 +123,7 @@ namespace ContactsApp.View
         /// <param name="index">Индекс текущего контакта</param>
         private void UpdateSelectedContact(int index)
         {
-            var contact = _project.Contacts[index];
+            var contact = _currentContacts[index];
 
             FullNameTextBox.Text = contact.FullName;
             EmailTextBox.Text = contact.Email;
