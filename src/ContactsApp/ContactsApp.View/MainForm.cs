@@ -253,8 +253,12 @@ namespace ContactsApp.View
         /// <param name="e">Аргументы события</param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            EditObject(ContactsListBox.SelectedIndex);
-            UpdateListBox();
+            int contactIndex = ContactsListBox.SelectedIndex;
+            if (contactIndex != -1)
+            {
+                EditObject(contactIndex);
+                UpdateListBox();
+            }
         }
         /// <summary>
         /// Обработка события наведения курсора на кнопку "Редактировать контакт"

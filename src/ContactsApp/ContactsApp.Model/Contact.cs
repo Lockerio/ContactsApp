@@ -206,6 +206,10 @@ namespace ContactsApp.Model
             }
         }
 
+        /// <summary>
+        /// Клонирование контакта
+        /// </summary>
+        /// <returns>Копия уже существующего контакта</returns>
         public Object Clone()
         {
             return new Contact(FullName, Email, PhoneNumber, DateOfBirth, VkId);
