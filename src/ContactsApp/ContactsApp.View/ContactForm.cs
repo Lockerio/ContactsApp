@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ContactsApp.View
 {
@@ -21,12 +22,27 @@ namespace ContactsApp.View
         /// Экземпляр класса Contact
         /// </summary>
         private Contact _contact = new Contact(
-            "Горюнов Аркадий", 
-            "goryunov.arkadiy@gmail.com", 
-            "89516201136", 
-            DateTime.Now, 
-            "Lockerio"
+            " ", 
+            " ", 
+            "80000000000", 
+            new DateTime(2000, 12, 12), 
+            " "
         );
+        
+        /// <summary>
+        /// Свойство для контакта
+        /// </summary>
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                _contact = value;
+            }
+        }
 
         /// <summary>
         /// Текст ошибки поля fullname 
@@ -52,7 +68,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Обновляет данные на форме
         /// </summary>
-        private void UpdateForm()
+        public void UpdateForm()
         {
             FullNameTextBox.Text = _contact.FullName;
             EmailTextBox.Text = _contact.Email;
@@ -107,7 +123,7 @@ namespace ContactsApp.View
                 var request = wrongFields.Select(wrongField => $"* {errorTexts[wrongField]}");
                 message += string.Join("\n\n", request);
 
-                MessageBox.Show(
+                var result = MessageBox.Show(
                     message,
                     "Ошибка!",
                     MessageBoxButtons.OK,
@@ -149,6 +165,7 @@ namespace ContactsApp.View
             if (!DoesFormHaveErrors())
             {
                 UpdateContact();
+                this.DialogResult = DialogResult.OK;
             }
         }
         /// <summary>

@@ -10,7 +10,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает контакт
     /// </summary>
-    public class Contact
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Полное имя
@@ -204,6 +204,11 @@ namespace ContactsApp.Model
             {
                 return value;
             }
+        }
+
+        public Object Clone()
+        {
+            return new Contact(FullName, Email, PhoneNumber, DateOfBirth, VkId);
         }
     }
 }

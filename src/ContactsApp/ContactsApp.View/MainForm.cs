@@ -40,11 +40,44 @@ namespace ContactsApp.View
         /// </summary>
         private void AddContact()
         {
-            Data data = new Data();
+            // Если нужно заполнить список рандомными данными 
+            //Data data = new Data();
+            //Contact contact = data.CreateContact();
 
-            Contact contact = data.CreateContact();
 
-            _project.Contacts.Add(contact);
+            ContactForm contactForm = new ContactForm();
+            DialogResult result = contactForm.ShowDialog();
+
+            Contact contact = contactForm.Contact;
+
+            if (result == DialogResult.OK)
+            {
+                _project.Contacts.Add(contact);
+                UpdateListBox();
+            }
+            else if (result == DialogResult.Cancel) { }
+        }
+
+        /// <summary>
+        /// Реактирование выбранного контакта
+        /// </summary>
+        /// <param name="index">Индекс выбранного контакта</param>
+        private void EditObject(int index)
+        {
+            ContactForm contactForm = new ContactForm();
+            Contact contact = _project.Contacts[index].Clone() as Contact;
+            contactForm.Contact = contact;
+            contactForm.UpdateForm();
+
+            DialogResult result = contactForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                _project.Contacts[index] = contactForm.Contact;
+                UpdateListBox();
+                UpdateSelectedContact(index);
+            }
+            else if (result == DialogResult.Cancel) { }
         }
 
         /// <summary>
@@ -189,11 +222,6 @@ namespace ContactsApp.View
             ClearSelectedContact();
             AddContact();
             UpdateListBox();
-
-            // Раскоментировать, когда будет создаваться контакт через форму ContactForm,
-            // а не через рандом
-            //var form = new ContactForm();
-            //form.ShowDialog();
         }
         /// <summary>
         /// Обработка события наведения курсора на кнопку "Добавить контакт"
@@ -225,8 +253,8 @@ namespace ContactsApp.View
         /// <param name="e">Аргументы события</param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            var form = new ContactForm();
-            form.ShowDialog();
+            EditObject(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
         /// <summary>
         /// Обработка события наведения курсора на кнопку "Редактировать контакт"
