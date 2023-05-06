@@ -23,15 +23,25 @@ namespace ContactsApp.View
         private Project _project = new Project();
 
         /// <summary>
+        /// Контакты, которые отображаются на экране после сортировок и фильтраций
+        /// </summary>
+        private List<Contact> _currentContacts = new List<Contact>();
+
+
+        /// <summary>
         /// Обнавление списка контактов на форме 
         /// </summary>
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
 
-            foreach (var contact in _project.Contacts)
+            _currentContacts = _project.FindContactsBySubstring(FindTextBox.Text);
+            _currentContacts = _project.SortContactsByName(_currentContacts);
+
+            foreach (var contact in _currentContacts)
             {
                 ContactsListBox.Items.Add(contact.FullName);
+                Console.WriteLine(contact.FullName);
             }
         }
 
@@ -372,6 +382,16 @@ namespace ContactsApp.View
         private void VKTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        /// <summary>
+        /// Обработка события ввода символов в текстбокс "FindTextBox"
+        /// </summary>
+        /// <param name="sender">Объект, инициировавший событие</param>
+        /// <param name="e">Аргументы события</param>
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateListBox();
         }
     }
 }

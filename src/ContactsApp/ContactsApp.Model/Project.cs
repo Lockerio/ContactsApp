@@ -40,9 +40,9 @@ namespace ContactsApp.Model
         /// <summary>
         /// Сортирует список по имени
         /// </summary>
-        public void SortContactsByName()
+        public List<Contact> SortContactsByName(List<Contact> contacts)
         {
-            Contacts = Contacts.OrderBy(contact => contact.FullName).ToList();
+            return contacts.OrderBy(contact => contact.FullName).ToList();
         }
 
         /// <summary>
@@ -62,8 +62,15 @@ namespace ContactsApp.Model
         /// <param name="substring">Введенная подстрока</param>
         /// <returns>Список контактов, имя которых содержит введенную подстроку</returns>
         public List<Contact> FindContactsBySubstring(string substring)
-        {
-            return Contacts.Where(contact => contact.FullName.Contains(substring)).ToList();
+        {   
+            if (string.IsNullOrEmpty(substring))
+            {
+                return Contacts;
+            }
+            substring = substring.ToLower();
+            return Contacts.Where(contact => contact.FullName.ToLower().
+                            Contains(substring)).
+                            ToList();
         }
     }
 }
