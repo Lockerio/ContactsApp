@@ -41,6 +41,10 @@ namespace ContactsApp.View
             set
             {
                 _contact = value;
+                if (value!= null) 
+                {
+                    UpdateForm();
+                }
             }
         }
 

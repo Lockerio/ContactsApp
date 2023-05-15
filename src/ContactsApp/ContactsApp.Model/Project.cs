@@ -50,9 +50,9 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="date">Введеннай дата</param>
         /// <returns>Контакты, у которых день рождения совпадает с введенной датой</returns>
-        public List<Contact> FindBirthdayContacts(DateTime date)
+        public List<Contact> FindBirthdayContacts(List<Contact> contacts, DateTime date)
         {
-            return Contacts.Where(contact => contact.DateOfBirth.Month == date.Month
+            return contacts.Where(contact => contact.DateOfBirth.Month == date.Month
             && contact.DateOfBirth.Day == date.Day).ToList();
         }
 
@@ -61,14 +61,14 @@ namespace ContactsApp.Model
         /// </summary>
         /// <param name="substring">Введенная подстрока</param>
         /// <returns>Список контактов, имя которых содержит введенную подстроку</returns>
-        public List<Contact> FindContactsBySubstring(string substring)
+        public List<Contact> FindContactsBySubstring(List<Contact> contacts, string substring)
         {   
             if (string.IsNullOrEmpty(substring))
             {
-                return Contacts;
+                return contacts;
             }
             substring = substring.ToLower();
-            return Contacts.Where(contact => contact.FullName.ToLower().
+            return contacts.Where(contact => contact.FullName.ToLower().
                             Contains(substring)).
                             ToList();
         }
