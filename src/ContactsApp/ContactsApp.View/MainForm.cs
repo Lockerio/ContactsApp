@@ -65,14 +65,14 @@ namespace ContactsApp.View
                 _project.Contacts.Add(contact);
                 UpdateListBox();
             }
-            else if (result == DialogResult.Cancel) { }
+            ProjectSerializer.SaveToFile(_project);
         }
 
         /// <summary>
         /// Реактирование выбранного контакта
         /// </summary>
         /// <param name="index">Индекс выбранного контакта</param>
-        private void EditObject(int index)
+        private void EditContact(int index)
         {
             ContactForm contactForm = new ContactForm();
             Contact contact = _currentContacts[index].Clone() as Contact;
@@ -93,7 +93,7 @@ namespace ContactsApp.View
                 }
                 UpdateSelectedContact(_currentContacts.IndexOf(contact));
             }
-            else if (result == DialogResult.Cancel) { }
+            ProjectSerializer.SaveToFile(_project);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace ContactsApp.View
                 _project.Contacts.Remove(contact);
                 UpdateListBox();
             }
-            else if (result == DialogResult.Cancel) { }
+            ProjectSerializer.SaveToFile(_project);
         }
 
         /// <summary>
@@ -176,6 +176,7 @@ namespace ContactsApp.View
         public MainForm()
         {
             InitializeComponent();
+            _project = ProjectSerializer.LoadFromFile();
         }
 
 
@@ -187,6 +188,7 @@ namespace ContactsApp.View
         private void MainForm_Load(object sender, EventArgs e)
         {
             KeyPreview = true;
+            UpdateListBox();
         }
 
         /// <summary>
@@ -224,6 +226,7 @@ namespace ContactsApp.View
                     e.Cancel = true;
                 }
             }
+            ProjectSerializer.SaveToFile(_project);
         }
 
 
@@ -272,7 +275,7 @@ namespace ContactsApp.View
             int contactIndex = ContactsListBox.SelectedIndex;
             if (contactIndex != -1)
             {
-                EditObject(contactIndex);
+                EditContact(contactIndex);
                 UpdateListBox();
             }
         }
