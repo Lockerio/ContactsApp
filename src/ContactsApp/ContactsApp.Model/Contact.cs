@@ -37,6 +37,9 @@ namespace ContactsApp.Model
         /// </summary>
         private string _vkId;
 
+        public Contact() { }
+        
+
         /// <summary>
         /// Конструктор класса Contact, создает экземпляр этого класса
         /// </summary>
@@ -117,19 +120,12 @@ namespace ContactsApp.Model
         /// <returns>Проверенную и отредактированную строку</returns>
         private string TruncateString(string value, int maxLength, string fieldName)
         {
-            if (value == null)
-            {
-                return null;
-            }
-            else if (value.Length > maxLength)
+            if (value.Length > maxLength)
             {
                 string messege = fieldName + ": Вы превысили лимит в " + maxLength + " символов.";
                 throw new ArgumentException(messege);
             }
-            else
-            {
-                return value;
-            }
+            return value;
         }
 
         /// <summary>
@@ -170,7 +166,7 @@ namespace ContactsApp.Model
 
                 string normalizedNumber = 
                     "+" + countryCode + " (" + numberPart1 + ") " + 
-                    numberPart2 + "-" + numberPart3 + "-" + numberPart4 + " ";
+                    numberPart2 + "-" + numberPart3 + "-" + numberPart4;
 
                 return normalizedNumber;
             }
