@@ -9,7 +9,7 @@ namespace ContactsApp.Model
     /// <summary>
     /// Описывает тестовые данные
     /// </summary>
-    public class Data
+    public class ContactsFactory
     {
         /// <summary>
         /// Список имен
