@@ -192,6 +192,85 @@ namespace ContactsAppModel.UnitTests
             Assert.AreNotSame(expected, actual, "Сортировка по имени не работает");
         }
 
+        [Test(Description = "Отрицательный тест сортировки Contacts по имени")]
+        public void SortContactsByName_AlphabetSort_ReturnException()
+        {
+            // Arrange
+            var contacts = new List<Contact>
+            {
+                new Contact(
+                    "Честер Беннингтон",
+                    "InTheEnd@gmail.com",
+                    "+7(567)016-97-71",
+                    new DateTime(1976, 3, 20),
+                    "breakingTheHabitTonight"
+                ),
+                new Contact(
+                    "Серега Пират",
+                    "pochemuTiEschoNeFanat@main.ru",
+                    "+7(400)818-92-19",
+                    new DateTime(1998, 4, 21),
+                    "serega_pirat"
+                )
+            };
+            var expected = new List<Contact>
+            {
+                new Contact(
+                    "Курт Кобейн",
+                    "ligts_out@gmail.com",
+                    "+7(149)912-56-83",
+                    new DateTime(1967, 12, 20),
+                    "NirvanaEnjoyer"
+                ),
+                new Contact(
+                    "Серега Пират",
+                    "pochemuTiEschoNeFanat@main.ru",
+                    "+7(400)818-92-19",
+                    new DateTime(1998, 4, 21),
+                    "serega_pirat"
+                ),
+                new Contact(
+                    "Честер Беннингтон",
+                    "InTheEnd@gmail.com",
+                    "+7(567)016-97-71",
+                    new DateTime(1976, 3, 20),
+                    "breakingTheHabitTonight"
+                )
+
+            };
+            Project project = new Project();
+
+            // Act
+            var actual = project.SortContactsByName(contacts);
+
+            // Assert
+            Assert.AreNotSame(expected, actual, "Сортировка по имени не работает");
+        }
+
+        [Test(Description = "Отрицательный тест сортировки Contacts по имени")]
+        public void SortContactsByName_AlphabetSort_ReturnExceptionEmptyList()
+        {
+            // Arrange
+            var contacts = new List<Contact>
+            {
+                
+            };
+            var expected = new List<Contact>
+            {
+                new Contact(),
+                new Contact(),
+                new Contact()
+
+            };
+            Project project = new Project();
+
+            // Act
+            var actual = project.SortContactsByName(contacts);
+
+            // Assert
+            Assert.AreNotSame(expected, actual, "Сортировка по имени не работает");
+        }
+
         [Test(Description = "Тест фильтрации Contacts по строке")]
         public void FindContactsBySubstring_SearchBySubstring_ReturnFilteredList()
         {
@@ -239,6 +318,132 @@ namespace ContactsAppModel.UnitTests
             // Assert
             Assert.AreNotSame(expected, actual, "Фильтрация по строке не работает");
         }
+
+        [Test(Description = "Отрицательный тест фильтрации Contacts по строке")]
+        public void FindContactsBySubstring_SearchBySubstringEmptyListы_ReturnFilteredList()
+        {
+            // Arrange
+            var contacts = new List<Contact>
+            {
+
+            };
+            var expected = new List<Contact>
+            {
+                
+            };
+            string substring = "Курт Кобейн";
+            Project project = new Project();
+
+            // Act
+            var actual = project.FindContactsBySubstring(contacts, substring);
+
+            // Assert
+            Assert.AreNotSame(expected, actual, "Фильтрация по строке не работает");
+        }
+
+        [Test(Description = "Отрицательный тест фильтрации Contacts по строке")]
+        public void FindContactsBySubstring_SearchBySubstringEmptyList_ReturnFilteredList()
+        {
+            // Arrange
+            var contacts = new List<Contact>
+            {
+                new Contact(
+                    "Честер Беннингтон",
+                    "InTheEnd@gmail.com",
+                    "+7(567)016-97-71",
+                    new DateTime(1976, 3, 20),
+                    "breakingTheHabitTonight"
+                ),
+                new Contact(
+                    "Серега Пират",
+                    "pochemuTiEschoNeFanat@main.ru",
+                    "+7(400)818-92-19",
+                    new DateTime(1998, 4, 21),
+                    "serega_pirat"
+                ),
+                new Contact(
+                    "Курт Кобейн",
+                    "ligts_out@gmail.com",
+                    "+7(149)912-56-83",
+                    new DateTime(1967, 12, 20),
+                    "NirvanaEnjoyer"
+                )
+            };
+            var expected = new List<Contact>
+            {
+                new Contact(
+                    "Курт Кобейн",
+                    "ligts_out@gmail.com",
+                    "+7(149)912-56-83",
+                    new DateTime(1967, 12, 20),
+                    "NirvanaEnjoyer"
+                )
+            };
+            string substring = "";
+            Project project = new Project();
+
+            // Act
+            var actual = project.FindContactsBySubstring(contacts, substring);
+
+            // Assert
+            Assert.AreNotSame(expected, actual, "Фильтрация по строке не работает");
+        }
+
+        [Test(Description = "Отрицательный тест фильтрации Contacts по строке")]
+        public void FindContactsBySubstring_SearchBySubstringWrongAnswersList_ReturnFilteredList()
+        {
+            // Arrange
+            var contacts = new List<Contact>
+            {
+                new Contact(
+                    "Честер Беннингтон",
+                    "InTheEnd@gmail.com",
+                    "+7(567)016-97-71",
+                    new DateTime(1976, 3, 20),
+                    "breakingTheHabitTonight"
+                ),
+                new Contact(
+                    "Серега Пират",
+                    "pochemuTiEschoNeFanat@main.ru",
+                    "+7(400)818-92-19",
+                    new DateTime(1998, 4, 21),
+                    "serega_pirat"
+                ),
+                new Contact(
+                    "Курт Кобейн",
+                    "ligts_out@gmail.com",
+                    "+7(149)912-56-83",
+                    new DateTime(1967, 12, 20),
+                    "NirvanaEnjoyer"
+                )
+            };
+            var expected = new List<Contact>
+            {
+                new Contact(
+                    "Серега Пират",
+                    "pochemuTiEschoNeFanat@main.ru",
+                    "+7(400)818-92-19",
+                    new DateTime(1998, 4, 21),
+                    "serega_pirat"
+                ),
+                new Contact(
+                    "Курт Кобейн",
+                    "ligts_out@gmail.com",
+                    "+7(149)912-56-83",
+                    new DateTime(1967, 12, 20),
+                    "NirvanaEnjoyer"
+                )
+            };
+            string substring = "";
+            Project project = new Project();
+
+            // Act
+            var actual = project.FindContactsBySubstring(contacts, substring);
+
+            // Assert
+            Assert.AreNotSame(expected, actual, "Фильтрация по строке не работает");
+        }
+
         [Test(Description = "Тест фильтрации Contacts по пустой строке")]
         public void FindContactsByEmptySubstring_SearchBySubstring_ReturnFilteredList()
         {
