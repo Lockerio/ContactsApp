@@ -10,7 +10,7 @@ using System.Data.SqlTypes;
 namespace ContactsAppModel.UnitTests
 {
     [TestFixture]
-    public class ProjectTest
+    public class ProjectTests
     {
         [Test(Description = "Позитивный тест сеттера Contacts")]
         public void Contacts_SetCorrectValue_SetSameValue()

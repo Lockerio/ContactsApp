@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model", "Contac
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{1A64B7F7-1389-4D2D-89C1-C6A77ED0F9BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppModel.UnitTests", "Testing\ContactsAppModel.UnitTests\ContactsAppModel.UnitTests.csproj", "{2060C9DF-61AD-4FCB-BDEA-F17CD3E52A56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppModelUnitTests", "Testing\ContactsAppModel.UnitTests\ContactsAppModelUnitTests.csproj", "{2060C9DF-61AD-4FCB-BDEA-F17CD3E52A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

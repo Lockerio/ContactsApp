@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace ContactsAppModel.UnitTests
 {
     [TestFixture]
-    public class ContactTest
+    public class ContactTests
     {
         [Test(Description = "Позитивный тест сеттера FullName")]
         public void FullName_SetCorrectValue_SetSameValueTitle()
