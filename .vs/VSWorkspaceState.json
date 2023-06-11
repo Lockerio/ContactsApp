@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\ContactsApp",
+    "\\src\\ContactsApp\\packages",
+    "\\src\\ContactsApp\\Testing",
+    "\\src\\ContactsApp\\Testing\\ContactsAppMode.UnitTests"
+  ],
+  "SelectedNode": "\\src\\ContactsApp\\packages\\Newtonsoft.Json.13.0.3",
+  "PreviewInSolutionExplorer": false
+}

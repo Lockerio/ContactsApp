@@ -1,0 +1,9 @@
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\bin\Debug\ContactsApp.Model.dll
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\bin\Debug\ContactsApp.Model.pdb
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\obj\Debug\ContactsApp.Model.csproj.AssemblyReference.cache
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\obj\Debug\ContactsApp.Model.csproj.CoreCompileInputs.cache
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\obj\Debug\ContactsApp.Model.dll
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\obj\Debug\ContactsApp.Model.pdb
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\bin\Debug\Newtonsoft.Json.xml
+C:\Учеба\НТВУ\ContactsApp\src\ContactsApp\ContactsApp.Model\obj\Debug\ContactsApp.Model.csproj.CopyComplete
